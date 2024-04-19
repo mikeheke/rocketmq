@@ -7,7 +7,7 @@ import org.apache.rocketmq.common.MixAll;
  * @author heke
  * @since 2024-04-19
  */
-public class BrokerStartupTests {
+public class HekeBrokerStartupTests {
 
     public static void main(String[] args) {
         System.setProperty("user.home", "D:\\rocketmq_home\\broker_home");

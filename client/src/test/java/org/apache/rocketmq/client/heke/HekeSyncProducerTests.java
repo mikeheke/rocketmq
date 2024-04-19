@@ -12,7 +12,7 @@ import org.junit.Test;
  * @author heke
  * @since 2024-04-19
  */
-public class SyncProducerTests {
+public class HekeSyncProducerTests {
 
     @Test
     public void test() throws Exception {
