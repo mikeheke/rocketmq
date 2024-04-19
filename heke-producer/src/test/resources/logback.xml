@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--scan自动扫描重新加载配置 scanPeriod重新加载配置的周期-->
+<configuration debug="false" scan="false" scanPeriod="10 seconds">
+
+    <property name="log.trace.pattern" value="%date{HH:mm:ss} [%t] %-5level %logger - %m%n" />
+
+    <!--ConsoleAppender 用于在屏幕上输出日志-->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!--定义控制台输出格式-->
+        <encoder>
+            <pattern>${log.trace.pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <!--
+    <logger name="c" level="debug" additivity="false" >
+        <appender-ref ref="STDOUT" />
+    </logger>
+    -->
+
+
+
+    <root level="debug">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+<!--    <logger name="org.apache.rocketmq">-->
+<!--        <level value="DEBUG"/>-->
+<!--        <appender-ref ref="STDOUT"/>-->
+<!--    </logger>-->
+
+</configuration>

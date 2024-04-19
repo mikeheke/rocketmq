@@ -1,9 +1,12 @@
-package org.apache.rocketmq.client.heke;
+package com.mikeheke.producer;
 
+import lombok.extern.slf4j.Slf4j;
+import org.apache.rocketmq.client.log.ClientLogger;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.remoting.common.RemotingHelper;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -12,7 +15,14 @@ import org.junit.Test;
  * @author heke
  * @since 2024-04-19
  */
+@Slf4j
 public class HekeSyncProducerTests {
+
+    @Before
+    public void before() {
+        System.setProperty(ClientLogger.CLIENT_LOG_USESLF4J, "true");
+        System.setProperty(ClientLogger.CLIENT_LOG_LEVEL, "DEBUG");
+    }
 
     @Test
     public void test() throws Exception {
@@ -31,7 +41,9 @@ public class HekeSyncProducerTests {
         SendResult sendResult = producer.send(msg);   //（4）
         System.out.printf("%s%n", sendResult);
 
-        Thread.sleep(30 * 1000);
+        log.debug("abc");
+
+        Thread.sleep(5 * 1000);
 
         // 一旦producer不再使用，关闭producer
         producer.shutdown();
