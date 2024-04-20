@@ -26,6 +26,7 @@ public class HekeSyncProducerTests {
 
     @Test
     public void test() throws Exception {
+        log.debug("test sync send message.");
         // 初始化一个producer并设置Producer group name
         DefaultMQProducer producer = new DefaultMQProducer("producerGroup1"); //（1）
         // 设置NameServer地址
