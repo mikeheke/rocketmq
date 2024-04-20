@@ -223,6 +223,7 @@ public class MQClientInstance {
     }
 
     public void start() throws MQClientException {
+        log.debug("k###### mqClientInstance.start(), this: {}", this);
 
         synchronized (this) {
             switch (this.serviceState) {
@@ -605,6 +606,8 @@ public class MQClientInstance {
 
     public boolean updateTopicRouteInfoFromNameServer(final String topic, boolean isDefault,
         DefaultMQProducer defaultMQProducer) {
+        log.debug("k###### updateTopicRouteInfoFromNameServer(), topic: {}", topic);
+
         try {
             if (this.lockNamesrv.tryLock(LOCK_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)) {
                 try {
