@@ -1,0 +1,23 @@
+{
+    "brokerDatas": [
+        {
+            "brokerAddrs": {
+                "0": "192.168.2.58:10911"
+            },
+            "brokerName": "Mike-MateBook",
+            "cluster": "DefaultCluster"
+        }
+    ],
+    "filterServerTable": {
+
+    },
+    "queueDatas": [
+        {
+            "brokerName": "Mike-MateBook",
+            "perm": 6,
+            "readQueueNums": 16,
+            "topicSysFlag": 0,
+            "writeQueueNums": 16
+        }
+    ]
+}

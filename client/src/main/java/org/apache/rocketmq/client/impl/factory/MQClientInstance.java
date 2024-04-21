@@ -36,6 +36,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import com.alibaba.fastjson.JSON;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.rocketmq.client.ClientConfig;
 import org.apache.rocketmq.client.admin.MQAdminExtInner;
@@ -255,6 +256,9 @@ public class MQClientInstance {
     }
 
     private void startScheduledTask() {
+        log.debug("k###### mqClientInstance.startScheduledTask(), scheduledExecutorService: {}",
+                this.scheduledExecutorService);
+
         if (null == this.clientConfig.getNamesrvAddr()) {
             this.scheduledExecutorService.scheduleAtFixedRate(new Runnable() {
 
@@ -625,6 +629,10 @@ public class MQClientInstance {
                     } else {
                         topicRouteData = this.mQClientAPIImpl.getTopicRouteInfoFromNameServer(topic, clientConfig.getMqClientApiTimeout());
                     }
+
+                    log.debug("k###### updateTopicRouteInfoFromNameServer() end! topic: {}, topicRouteData: {}",
+                            topic, JSON.toJSONString(topicRouteData));
+
                     if (topicRouteData != null) {
                         TopicRouteData old = this.topicRouteTable.get(topic);
                         boolean changed = topicRouteDataIsChange(old, topicRouteData);

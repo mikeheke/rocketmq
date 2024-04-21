@@ -151,6 +151,8 @@ public class NettyRemotingClient extends NettyRemotingAbstract implements Remoti
 
     @Override
     public void start() {
+        log.debug("k###### nettyRemotingClient.start(), this: {}", this);
+
         this.defaultEventExecutorGroup = new DefaultEventExecutorGroup(
             nettyClientConfig.getClientWorkerThreads(),
             new ThreadFactory() {
@@ -218,6 +220,8 @@ public class NettyRemotingClient extends NettyRemotingAbstract implements Remoti
         if (this.channelEventListener != null) {
             this.nettyEventExecutor.start();
         }
+
+        log.debug("k###### nettyRemotingClient.start(), bootstrap: {}", bootstrap);
     }
 
     @Override
@@ -494,6 +498,7 @@ public class NettyRemotingClient extends NettyRemotingAbstract implements Remoti
                 }
 
                 if (createNewConnection) {
+                    log.debug("k###### nettyRemotingClient.createChannel(), addr: {}", addr);
                     ChannelFuture channelFuture = this.bootstrap.connect(RemotingHelper.string2SocketAddress(addr));
                     log.info("createChannel: begin to connect remote host[{}] asynchronously", addr);
                     cw = new ChannelWrapper(channelFuture);

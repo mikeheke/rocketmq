@@ -14,7 +14,7 @@ import org.apache.rocketmq.client.producer.DefaultMQProducer;
 @Slf4j
 public class HekeProducerStartup {
 
-    public static void main(String[] args) throws MQClientException {
+    public static void main(String[] args) throws MQClientException, InterruptedException {
         System.setProperty(ClientLogger.CLIENT_LOG_USESLF4J, "true");
         System.setProperty(ClientLogger.CLIENT_LOG_LEVEL, "DEBUG");
 
@@ -25,6 +25,11 @@ public class HekeProducerStartup {
         producer.setNamesrvAddr("localhost:9876");  //（2）
         // 启动producer
         producer.start();
+
+        Thread.sleep(5 * 1000);
+
+        // 一旦producer不再使用，关闭producer
+        producer.shutdown();
     }
 
 }
