@@ -9,7 +9,7 @@ import java.util.Properties;
  * @author heke
  * @since 2024-04-19
  */
-public class HekeNamesrvStartupTests {
+public class HekeNamesrvStartup {
 
     public static void main(String[] args) {
         System.setProperty("user.home", "D:\\rocketmq_home\\namesrv_home");

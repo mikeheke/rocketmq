@@ -24,9 +24,9 @@
         <appender-ref ref="STDOUT" />
     </root>
 
-<!--    <logger name="org.apache.rocketmq">-->
-<!--        <level value="DEBUG"/>-->
-<!--        <appender-ref ref="STDOUT"/>-->
-<!--    </logger>-->
+    <logger name="io.netty">
+        <level value="debug"/>
+        <appender-ref ref="STDOUT"/>
+    </logger>
 
 </configuration>
