@@ -182,6 +182,8 @@ public class NettyRemotingServer extends NettyRemotingAbstract implements Remoti
 
     @Override
     public void start() {
+        log.debug("k###### nettyRemotingServer.start(), nettyServerConfig:{}, this: {}",
+                nettyServerConfig, this);
         this.defaultEventExecutorGroup = new DefaultEventExecutorGroup(
             nettyServerConfig.getServerWorkerThreads(),
             new ThreadFactory() {
