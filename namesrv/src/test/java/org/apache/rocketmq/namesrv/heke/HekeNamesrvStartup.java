@@ -20,6 +20,8 @@ public class HekeNamesrvStartup {
             System.out.println(propertyName + " : " + properties.getProperty(propertyName));
         }
 
+        //String[] _args = {"-p"};
+        //NamesrvStartup.main0(_args);
         NamesrvStartup.main0(null);
     }
 

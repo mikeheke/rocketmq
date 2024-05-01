@@ -16,6 +16,7 @@
  */
 package org.apache.rocketmq.namesrv.routeinfo;
 
+import com.alibaba.fastjson.JSON;
 import io.netty.channel.Channel;
 
 import java.util.ArrayList;
@@ -603,6 +604,12 @@ public class RouteInfoManager {
             try {
                 this.lock.readLock().lockInterruptibly();
                 log.info("--------------------------------------------------------");
+                log.info("topicQueueTable: {}", JSON.toJSONString(this.topicQueueTable));
+                log.info("brokerAddrTable: {}", JSON.toJSONString(this.brokerAddrTable));
+                log.info("brokerLiveTable: {}", JSON.toJSONString(this.brokerLiveTable));
+                log.info("clusterAddrTable: {}", JSON.toJSONString(this.clusterAddrTable));
+                log.info("===============");
+
                 {
                     log.info("topicQueueTable SIZE: {}", this.topicQueueTable.size());
                     Iterator<Entry<String, Map<String, QueueData>>> it = this.topicQueueTable.entrySet().iterator();
